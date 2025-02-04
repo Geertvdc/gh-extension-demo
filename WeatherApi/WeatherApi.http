@@ -1,0 +1,11 @@
+@WeatherApi_HostAddress = http://localhost:5113
+
+GET {{WeatherApi_HostAddress}}/weatherforecast/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "location": "New York"
+}
+
+###
