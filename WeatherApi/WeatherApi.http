@@ -1,6 +1,7 @@
+#@WeatherApi_HostAddress = https://super-fortnight-56qvx6597r2v977-5113.app.github.dev
 @WeatherApi_HostAddress = http://localhost:5113
 
-GET {{WeatherApi_HostAddress}}/weatherforecast/
+POST {{WeatherApi_HostAddress}}/weatherforecast/
 Content-Type: application/json
 Accept: application/json
 

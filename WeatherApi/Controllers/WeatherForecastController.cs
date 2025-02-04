@@ -18,8 +18,8 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast>Get([FromBody] GetWeatherForecastRequest request)
+    [HttpPost(Name = "GetWeatherForecast")]
+    public IEnumerable<WeatherForecast>Post([FromBody] WeatherForecastRequest request)
     {
         _logger.LogInformation("Getting weather forecast for location: {Location}", request.Location);
 
@@ -33,7 +33,7 @@ public class WeatherForecastController : ControllerBase
     }
 }
 
-public class GetWeatherForecastRequest
+public class WeatherForecastRequest
 {
     public string Location { get; set; }
 }
