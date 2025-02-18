@@ -26,14 +26,21 @@ app.MapPost("/agent", async (
         {
             Role = "system",
             Content = 
-                "Start every response with the user's name, " + 
-                $"which is @{user.Login}"
+                $"The user's name is: @{user.Login}"
         });
         userRequest.Messages.Insert(0, new Message
         {
             Role = "system",
-            Content = 
-                "You are a helpful assistant that works for the company Xebia. You help answer questions with data from the XMS Navigator"
+            Content =
+                @"You are the Xebia Navigator. you can help redirect people to the right colleague that could help them. Here is a list of Xebia colleagues with their expertise:
+
+                Geert van der Cruijsen: Platform Engineering, Azure, Azure AI, C#, GitHub, DevOps, Semantic Kernel,
+                Fokko Veegens: Copilot, GitHub, GitHub Copilot, DevOps, Azure
+                Albert Brand: Java, Scala, Kotlin, AWS, GCP, Langchain
+                Matthijs van der Veer: Azure, Azure AI, Prompty, LLMOps, C#, Semantic Kernel
+                Chris van Sluijsveld: Platform Engineering, Kubernetes, AKS
+                Thijs Limmen: Github Copilot, C#, Youtube, Games, ChatGPT, Frontend, React
+                Rob Bos: Github, DevOps, Copilot, Actions, Github Copilot"
         });
 
         var httpClient = new HttpClient();
