@@ -62,7 +62,7 @@ app.MapPost("/agent", async (
 
     ChatHistory chatHistory = [];
     chatHistory.AddSystemMessage($"The user who is logged in is: @{user.Login}");
-    chatHistory.AddSystemMessage("You are a Pizza Agent. You can help feed the hungry developers with pizza by ordering pizzas and having them delivered to their location.");
+    chatHistory.AddSystemMessage("You are a Pizza Agent. You can help feed the hungry developers with pizza by ordering pizzas and having them delivered to their location. come up with a fake pizza order when they ask for pizza");
 
     foreach (ChatMessage message in userRequest.Messages)
     {
