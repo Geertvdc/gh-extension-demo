@@ -8,7 +8,13 @@ string githubCopilotCompletionsUrl = "https://api.githubcopilot.com/chat/complet
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello XMS Navigator!");
+app.MapGet("/", () => "Hello Xebia Navigator!");
+
+app.MapGet("/callback", () => "You may close this tab and " + 
+    "return to GitHub.com (where you should refresh the page " +
+    "and start a fresh chat). If you're using VS Code or " +
+    "Visual Studio, return there.");
+
 
 app.MapPost("/agent", async (
     [FromHeader(Name = "X-GitHub-Token")] string githubToken, 
@@ -55,11 +61,5 @@ app.MapPost("/agent", async (
         return Results.Stream(responseStream, "application/json");
 
 });
-
-
-app.MapGet("/callback", () => "You may close this tab and " + 
-    "return to GitHub.com (where you should refresh the page " +
-    "and start a fresh chat). If you're using VS Code or " +
-    "Visual Studio, return there.");
 
 app.Run();
