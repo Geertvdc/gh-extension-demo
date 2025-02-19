@@ -1,6 +1,0 @@
-@PizzaAgent_HostAddress = http://localhost:5117
-
-GET {{PizzaAgent_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
