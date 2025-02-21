@@ -9,6 +9,33 @@ The first example is a skillset that exposes the basic weather api that comes ou
 ![Skillset Example](img/skillset.png)
 
 ## Agent Example
-The second example is an agent implementation of a GitHub Copilot Extension. This example shows how you can build an agent where you have full control of the complete interactions with Copilot and LLM models. In this example we use C# and Semantic Kernel to control the flow of the extension and add a plugin to order pizza from your copilot.
+The second example is an agent implementation of a GitHub Copilot Extension. This example shows how you can build an agent where you have full control of the complete interactions with Copilot and LLM models. In this example we use C# to help us find the right colleague when working on a specific technology.
 
 ![Agent Example](img/agent.png)
+
+
+### Debugging
+You'll need the Github CLI
+```
+brew install gh
+```
+
+Then you need to authenticate with the GitHub CLI
+```
+gh auth login --web -h github.com
+```
+
+After that you can install the debugger extension
+```
+gh extension install github.com/copilot-extensions/gh-debug-cli
+```
+
+Then you'll need the github token to authenticate to your agent:
+```
+GITHUB_TOKEN=$(gh auth token)
+```
+
+then finally you can actually start the debugger
+```
+gh debug-cli chat --url http://localhost:5125/agent --token $GITHUB_TOKEN
+```
